@@ -1,0 +1,20 @@
+<div class="main">
+  <form class="loginbox">
+    <div class="form-group">
+      <label>email:</label>
+      <input class="form-control"
+             type="text"
+             id="email">
+    </div>
+    <div class="form-group">
+      <label>Wachtwoord:</label>
+      <input class="form-control"
+             type="text"
+             id="password">
+    </div>
+    <div class="text-center">
+      <button (click)="onLoginClicked()">inloggen</button>
+      <a class="" routerLink="/signUp" routerLinkActive="active">signup</a>
+    </div>
+  </form>
+</div>

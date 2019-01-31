@@ -1,0 +1,9 @@
+<div class="container col-md-12" *ngIf="selectedItem == null">
+  <div class="row">
+      <app-items></app-items>
+  </div>
+</div>
+<div *ngIf="selectedItem != null">
+  <button (click)="reset()">terug</button>
+      <app-detailes [item]="selectedItem"></app-detailes>
+</div>

@@ -1,0 +1,13 @@
+.main{
+  height: 94vh;
+  background-color: black;
+}
+.loginbox{
+  height: 400px;
+  width: 800px;
+  background-color: white;
+  border-color: #f2961b;
+  border-style: solid;
+  margin: auto;
+  text-align: center;
+}
