@@ -1,0 +1,17 @@
+<div class="list-group-item clearfix shop_item" (click)="onselected()">
+<span>
+    <img
+     class="item_pic"
+      [src]="item.imagePath"
+      alt="{{ item.name }}"
+      style="max-height: 100px;">
+  </span>
+
+  <div
+    class="item_desc">
+    <h4 >{{ item.name }}</h4>
+    <p>€{{ item.price }}</p>
+  </div>
+
+</div>
+

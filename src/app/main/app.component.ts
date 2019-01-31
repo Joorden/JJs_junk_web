@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ItemService} from './service/item.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MyWebshop';
+  loadedFeature = 'store';
+
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
+  }
 }
