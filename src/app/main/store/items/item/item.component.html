@@ -2,14 +2,14 @@
 <span>
     <img
      class="item_pic"
-      [src]="item.imagePath"
+      src="{{item.image}}"
       alt="{{ item.name }}"
       style="max-height: 100px;">
   </span>
 
   <div
     class="item_desc">
-    <h4 >{{ item.name }}</h4>
+    <h4 >{{ item.name }}{{item.image}}</h4>
     <p>€{{ item.price }}</p>
   </div>
 
