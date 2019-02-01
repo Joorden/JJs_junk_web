@@ -21,11 +21,11 @@ export class SignupComponent implements OnInit {
   signup() {
     this.userservice.registerUser(
       {
-        fullName: this.fullName.nativeElement.value,
         email: this.email.nativeElement.value,
+        fullName: this.fullName.nativeElement.value,
+        password: this.password.nativeElement.value,
         postcode: this.postcode.nativeElement.value,
         homeNumber: this.streetnumber.nativeElement.value,
-        password: this.password.nativeElement.value,
         admin: false}).subscribe();
 
   }
