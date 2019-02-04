@@ -2,20 +2,23 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../models/user.model';
+import {LoginService} from './login.service';
+import {Item} from '../models/item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  email: String;
 
   private user_url = 'https://jjjunk.herokuapp.com/api/users';
   users = [];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private loginService: LoginService) { }
   registerUser(user): Observable<User> {
     const userJSON = JSON.stringify(user);
-    console.log(userJSON);
     const httpHeaders = new HttpHeaders({
+      'Authorization' : this.loginService.authentication,
       'Content-Type': 'application/json'
     });
 
@@ -24,22 +27,24 @@ export class UserService {
     };
     return this.httpClient.post<User>(this.user_url, userJSON, options);
   }
-  getUsers() {
-    return this.httpClient.get<User[]>(this.user_url);
-  }
-  getUser(Email) {
-    return this.httpClient.get<User[]>(this.user_url + '/' + Email);
-  }
-  deleteUser(userEmail) {
+  deleteUser() {
     const httpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
+      'Authorization' : this.loginService.authentication,
     });
     const options = {
       headers: httpHeaders
     };
-    const new_url = `${this.user_url}/${userEmail}`;
-    console.log(new_url);
-    return this.httpClient.delete<User>(new_url, options);
+    return this.httpClient.delete<User>(this.user_url, options);
+  }
+  editUser(user): Observable<User> {
+    const userJSN = JSON.stringify(user);
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : this.loginService.authentication
+    });
+    const options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.put<User>(this.user_url, userJSN, options);
   }
 }

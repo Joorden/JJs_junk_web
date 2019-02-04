@@ -1,0 +1,55 @@
+<div class="main">
+<div>
+<div class="box" *ngIf="isedit == 0">
+  <hr>
+  <button class="btn btn-primary m-1 jbtn" (click)="isedit = 1" >add</button>
+  <hr>
+  <button class="btn btn-primary m-1 jbtn" (click)="isedit = 2">update</button>
+  <hr>
+  <button class="btn btn-primary m-1 jbtn" (click)="isedit = 3">remove</button>
+  <hr>
+</div>
+<div class="box" *ngIf="isedit == 1">
+  <form  (ngSubmit)="addUser(f)" #f="ngForm">
+    <div>
+      <div class="form-group">
+        <label class="col-form-label">email</label>
+        <input type="text" required class="form-control" ngModel name="email" email>
+      </div>
+      <div class="form-group">
+        <label class="col-form-label"> password</label>
+        <input type="password" required class="form-control" ngModel name="password">
+      </div>
+      <div class="form-group mt-3 mb-0">
+        <button class="btn btn-primary m-1 jbtn" (click)="isedit = 0" >back</button>
+        <button type="submit" class="btn btn-primary ml-5 jtbn"> add </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+  <div class="box" *ngIf="isedit == 2">
+    <form  (ngSubmit)="updateUser(f)" #f="ngForm">
+      <div>
+        <div class="form-group">
+          <label class="col-form-label"> new password </label>
+          <input type="password" required class="form-control" ngModel name="password">
+        </div>
+        <div class="form-group mt-3 mb-0">
+          <button class="btn btn-primary m-1 jbtn" (click)="isedit = 0" >back</button>
+          <button type="submit" class="btn btn-primary ml-5 jbtn"> update password </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="box" *ngIf="isedit == 3">
+        <p>are you sure you want to remove yourself</p>
+        <div class="form-group mt-3 mb-0">
+          <button class="btn btn-primary jbtn" (click)="isedit = 0" >back</button>
+          <button (click)="delete()" type="submit" class="btn btn-primary ml-5 jbtn"> remove me </button>
+        </div>
+  </div>
+<div appProtected=""></div>
+</div>
+</div>

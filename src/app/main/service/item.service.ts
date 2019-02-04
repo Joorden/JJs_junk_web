@@ -19,8 +19,15 @@ export class ItemService {
     this.itemCart.push(item);
     this.cartedited.emit(this.itemCart.slice());
   }
+  removeFromCart(item) {
+    this.itemCart.splice(this.itemCart.indexOf(item), 1);
+    this.cartedited.emit(this.itemCart.slice());
+  }
   getcart() {
     return this.itemCart.slice();
+  }
+  removeCart() {
+    this.itemCart = [];
   }
   getItems() {
     const httpHeaders = new HttpHeaders({
@@ -38,5 +45,28 @@ export class ItemService {
       headers: httpHeaders
     };
     return this.httpClient.post<Item>(this.itemUrl, formdata, options);
+  }
+  deleteItem(name) {
+    const httpHeaders = new HttpHeaders({
+      'Authorization': this.loginService.authentication
+    });
+    const options = {
+      headers: httpHeaders
+    };
+    const new_url = `${this.itemUrl}/${name}`;
+    console.log(new_url);
+    return this.httpClient.delete<Item>(new_url, options);
+  }
+  editItem(item): Observable<Item> {
+    const itemJSN = JSON.stringify(item);
+    const new_url = this.itemUrl;
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : this.loginService.authentication
+    });
+    const options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.put<Item>(new_url, itemJSN, options);
   }
 }

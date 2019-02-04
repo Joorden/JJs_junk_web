@@ -1,0 +1,31 @@
+<div class="main">
+<form  class="cart" (ngSubmit)="addItem(f)" #f="ngForm">
+  <div>
+    <div class="form-group">
+      <label class="col-form-label"> ean </label>
+      <input type="number" required class="form-control" placeholder="" ngModel name="ean">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label"> name</label>
+      <input type="text"  required email class="form-control" placeholder="" ngModel name="name">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label"> price</label>
+      <input type="number" required email class="form-control" placeholder="" ngModel name="price">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label"> description </label>
+      <input type="text" required class="form-control" placeholder="" ngModel name="description">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label"> imagepath</label>
+      <input type="text" required class="form-control" placeholder="" ngModel name="image">
+    </div>
+  <div class="form-group mt-3 mb-0">
+    <a class="btn btn-primary ml-5  jbtn"  routerLink="/edit" routerLinkActive="active">back</a>
+    <button type="submit" class="btn btn-primary ml-5 jbtn"> add </button>
+  </div>
+  </div>
+</form>
+<div appProtected=""></div>
+</div>

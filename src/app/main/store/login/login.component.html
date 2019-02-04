@@ -7,14 +7,13 @@
              id="email">
     </div>
     <div class="form-group">
-      <label>Wachtwoord:</label>
+      <label>password:</label>
       <input class="form-control"
-             type="text"
+             type="password"
              id="password">
     </div>
     <div class="text-center">
-      <button (click)="onLoginClicked()">inloggen</button>
-      <a class="" routerLink="/signUp" routerLinkActive="active">signup</a>
+      <button class="btn btn-primary ml-5 jbtn" (click)="authenticate()">login</button>
     </div>
   </form>
 </div>

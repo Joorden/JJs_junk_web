@@ -15,7 +15,7 @@ export class LoginService {
   constructor(private httpClient: HttpClient, private router: Router, private route: ActivatedRoute) { }
 
   authenticate(username: string, password: string) {
-    const newUrl = `${this.userURL}/me`;
+    const newUrl = `${this.userURL}users/me`;
     this.authentication = 'Basic ' + btoa(username + ':' + password);
     const httpHeaders = new HttpHeaders({
       'Authorization': this.authentication
@@ -33,9 +33,17 @@ export class LoginService {
 
   logout() {
     this.currentUser = null;
+    this.router.navigate([`/home`], {relativeTo: this.route});
   }
 
   isLoggedIn() {
     return this.currentUser !== null;
+  }
+  isAuthorized(level: string) {
+    if (this.currentUser !== null) {
+      return this.currentUser.admin;
+    } else {
+      return false;
+    }
   }
 }

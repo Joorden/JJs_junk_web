@@ -1,0 +1,60 @@
+
+<div class="main">
+<div class="cart" *ngIf="!isedit">
+  <button class="btn btn-primary m-1 jbtn" (click)="delete(selectedItem)" [disabled]="!canSelect">delete</button>
+  <a class="btn btn-primary m-1 jbtn" routerLink="/add" routerLinkActive="active">add</a>
+  <button class="btn btn-primary m-1 jbtn" (click)="edit()" [disabled]="!canSelect">edit</button>
+<table class="table main-background">
+  <thead>
+  <tr>
+    <th>name</th>
+    <th>price</th>
+    <th>description</th>
+    <th>image</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr   *ngFor="let item of items  let i = index"
+        (click)="selectItem(item, i)"
+        [ngClass]="{selectedRow: i === selectedIndex}"  >
+    <td>
+      {{item.name}}
+    </td>
+    <td>
+      {{item.price | number:'1.2-2'}}
+    </td>
+    <td>
+      {{item.description}}
+    </td>
+    <td>
+      {{item.image}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<div class="cart"*ngIf="isedit">
+  <form  (ngSubmit)="updateItem(f)" #f="ngForm">
+    <div>
+      <h1>{{selectedItem.name}}</h1>
+      <div class="form-group">
+        <label class="col-form-label"> price</label>
+        <input type="number" required class="form-control" placeholder="{{selectedItem.price}}" ngModel name="price">
+      </div>
+      <div class="form-group">
+        <label class="col-form-label"> description </label>
+        <input type="text" required class="form-control" placeholder="{{selectedItem.description}}" ngModel name="description">
+      </div>
+      <div class="form-group">
+        <label class="col-form-label"> imagepath</label>
+        <input type="text" required class="form-control" placeholder="{{selectedItem.image}}" ngModel name="image">
+      </div>
+      <div class="form-group mt-3 mb-0">
+        <button class="btn btn-primary m-1 jbtn" (click)="edit()" >back</button>
+        <button type="submit" class="btn btn-primary ml-5 jbtn"> edit </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div appProtected=""></div>
+</div>

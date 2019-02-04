@@ -5,9 +5,13 @@
     </div>
     <div class="collapse navbar-collapse jj_nav_items">
       <ul class=" nav ">
-        <a class="jj_nav-item" href="#"  routerLink="/loggingIn" routerLinkActive="active">login</a>
-        <a class="jj_nav-item" href="#"  routerLink="/cart" routerLinkActive="active">cart</a>
-        <a class="jj_nav-item" href="#" routerLink="/store" routerLinkActive="active">store</a>
+        <button class="jj_nav-item exit" *ngIf="loginServiceVar.isAuthorized('Admin')" (click)="loginService.logout()">x</button>
+        <a class="jj_nav-item" *ngIf="loginServiceVar.isAuthorized('Admin')" href="#" routerLink="/users" routerLinkActive="active">user</a>
+        <a class="jj_nav-item" *ngIf="loginServiceVar.isAuthorized('Admin')" href="#" routerLink="/edit" routerLinkActive="active">item</a>
+        <a class="jj_nav-item" *ngIf="!loginServiceVar.isAuthorized('Admin')" href="#" routerLink="/loggingIn" routerLinkActive="active">login</a>
+        <a class="jj_nav-item" *ngIf="!loginServiceVar.isAuthorized('Admin')" href="#"  routerLink="/cart" routerLinkActive="active">cart</a>
+        <a class="jj_nav-item"  routerLink="/store" routerLinkActive="active">store</a>
+
       </ul>
     </div>
   </div>

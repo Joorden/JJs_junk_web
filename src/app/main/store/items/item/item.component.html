@@ -3,14 +3,13 @@
     <img
      class="item_pic"
       src="{{item.image}}"
-      alt="{{ item.name }}"
-      style="max-height: 100px;">
+      alt="{{ item.name }}">
   </span>
 
   <div
     class="item_desc">
-    <h4 >{{ item.name }}{{item.image}}</h4>
-    <p>€{{ item.price }}</p>
+    <h4 >{{ item.name }}</h4>
+    <p>€{{ item.price | number:'1.2-2' }}</p>
   </div>
 
 </div>

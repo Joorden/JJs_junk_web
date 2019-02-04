@@ -24,7 +24,7 @@
 }
 .jj_nav-item{
   font-size: 1.3em;
-  width: 30%;
+  width: 20%;
   display: inline-block;
   float: right;
   color: white;
@@ -39,3 +39,14 @@
   background-color: #f2961b;
   color: black;
 }
+.exit {
+  font-size: 2em;
+  width: 30px;
+  color: #f2961b !important;
+  background-color: black;
+  height: 100%;
+  border-style: none !important;
+  border-color: black;
+  border: 0;
+}
+

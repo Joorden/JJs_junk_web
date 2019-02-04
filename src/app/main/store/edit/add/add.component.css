@@ -1,19 +1,17 @@
+.main{
+  height: 94vh;
+  background-color: black;
+}
 .selectedRow{
   background-color: #bbbbbb !important;
 }
 .cart{
-  height: 400px;
+  height: 500px;
   width: 800px;
   background-color: white;
   border-color: #f2961b;
   border-style: solid;
   margin: auto;
   text-align: center;
-  align-content: center;
-}
-.main{
-  background-color: black;
-  height: 96vh;
-  width: 100%;
   align-content: center;
 }

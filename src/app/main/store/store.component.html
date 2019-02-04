@@ -3,7 +3,7 @@
       <app-items></app-items>
   </div>
 </div>
-<div *ngIf="selectedItem != null">
-  <button (click)="reset()">terug</button>
-      <app-detailes [item]="selectedItem"></app-detailes>
+<div *ngIf="selectedItem != null" class="back">
+  <button (click)="reset()" class="btn btn-primary m-1 jbtn back ">terug</button>
+      <app-detailes [item]="selectedItem">  </app-detailes>
 </div>

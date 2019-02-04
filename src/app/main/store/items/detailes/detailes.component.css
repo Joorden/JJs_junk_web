@@ -4,4 +4,27 @@
   align-content: center;
   border-color: #f2961b;
   border-style: solid;
+  borDER: 3PX;
 }
+.cart{
+  height: 600px;
+  width: 600px;
+  background-color: white;
+  border-color: #f2961b;
+  border-style: solid;
+  margin: auto;
+  text-align: center;
+  align-content: center;
+}
+.main{
+  background-color: black;
+  height: 96vh;
+  width: 100%;
+  align-content: center;
+}
+.img-j{
+  max-width: 450px;
+  max-height: 400px;
+  margin: auto;
+}
+

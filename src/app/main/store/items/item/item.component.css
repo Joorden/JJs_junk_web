@@ -1,7 +1,8 @@
 .item_pic{
-  min-height: 300px;
-  margin: auto;
+  max-height: 300px !important;
+  max-width: 80%;
   z-index: 2;
+  margin: auto;
 }
 .item_desc{
   z-index: 1;
@@ -22,6 +23,7 @@
   height: 400px;
   margin-right: 5px;
   z-index: 1;
+  align-content: center;
 
 }
 .shop_item:hover {
@@ -30,9 +32,6 @@
 }
 h4{
   font-size: 2em;
-}
-p{
-
 }
 
 
